@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Strunatci – ponorková výprava</title>
+<style>
+  :root{--bg:#04182a;--panel:#0a2a40;--line:#1d4560;--gold:#f6c446;--teal:#2fb8c8;--grn:#3fd07a;--ora:#f0a020;--red:#ff6a74;--ink:#eaf6ff;--muted:#9fc4d8}
+  *{box-sizing:border-box}
+  body{margin:0;background:radial-gradient(ellipse at top,#0d3a5a,var(--bg) 60%);color:var(--ink);font-family:'Segoe UI',Arial,sans-serif;line-height:1.5}
+  .wrap{max-width:1100px;margin:0 auto;padding:22px 16px 60px}
+  header{text-align:center;margin-bottom:16px}
+  h1{font-size:clamp(30px,6vw,56px);margin:4px 0 0;color:var(--gold);letter-spacing:2px;text-shadow:0 3px 0 #5a3a08}
+  .sub{color:var(--muted);font-size:clamp(15px,2.4vw,19px)}
+  .icons{font-size:clamp(26px,5vw,40px);letter-spacing:8px}
+  .badge{display:inline-block;background:linear-gradient(#ffe7a6,#d69a3a);color:#101e3a;font-weight:900;border-radius:8px;padding:0 8px;font-size:.8em}
+  .player{background:#000;border:3px solid var(--gold);border-radius:12px;overflow:hidden;box-shadow:0 10px 40px #000a}
+  video{display:block;width:100%;aspect-ratio:16/9;background:#000}
+  .tip{color:var(--muted);text-align:center;margin:8px 0 0;font-size:15px}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:22px}
+  @media(max-width:760px){.grid{grid-template-columns:1fr}}
+  .box{background:var(--panel);border:2px solid var(--line);border-radius:12px;padding:16px 18px}
+  .box h2{margin:0 0 10px;color:var(--gold);font-size:22px}
+  .full{grid-column:1/-1}
+  .chap{display:flex;gap:10px;align-items:baseline;width:100%;text-align:left;font:inherit;font-size:17px;color:var(--ink);background:none;border:0;border-bottom:1px solid var(--line);padding:8px 4px;cursor:pointer}
+  .chap:hover{background:#123a56}
+  .chap.now{background:#1d4c6c;color:#fff}
+  .chap b{color:var(--gold);min-width:56px;font-variant-numeric:tabular-nums}
+  table{width:100%;border-collapse:collapse;font-size:15px}
+  td{padding:6px;border-bottom:1px solid var(--line);vertical-align:top}
+  td:first-child{color:var(--teal);font-weight:bold;white-space:nowrap}
+  .grn td:first-child{color:var(--grn)} .ora td:first-child{color:var(--ora)} .red td:first-child{color:var(--red)}
+  .tag{display:inline-block;background:#123a56;border:1px solid var(--line);border-radius:20px;padding:2px 10px;margin:3px 2px;font-size:14px}
+  .mnem{background:#123a56;border-left:4px solid var(--gold);padding:10px 14px;border-radius:8px;margin-top:8px;font-size:16px}
+  footer{text-align:center;color:var(--muted);margin-top:28px;font-size:13px}
+  details summary{cursor:pointer;color:var(--gold);font-weight:bold}
+  details ul{margin:8px 0 0;padding-left:20px;color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="icons">🔱🦈🐟</div>
+    <h1>STRUNATCI</h1>
+    <div class="sub">ponorková výprava profesora Zrníčka · pláštěnci · kopinatci · mihule · paryby · ryby · 18 minut · <span class="badge">NEPTUN PRO</span></div>
+  </header>
+
+  <div class="player"><video id="v" src="https://github.com/luciehavrankovacz-hub/strunatci/releases/download/v1/strunatci.mp4" poster="miniatura.jpg" controls preload="metadata" playsinline></video></div>
+  <p class="tip">📱 Na mobilu otoč telefon na šířku a dej celou obrazovku ⛶ · na konci je kvíz – na každou otázku máš 5 vteřin</p>
+
+  <div class="grid">
+    <div class="box">
+      <h2>🎬 Kapitoly (klikni a video skočí)</h2>
+      <div id="chapters"></div>
+    </div>
+
+    <div class="box">
+      <h2>📘 Strunatci – znaky</h2>
+      <table>
+        <tr><td>kdo</td><td>mnohobuněční, nejdokonalejší živočichové</td></tr>
+        <tr><td>kde</td><td>slané i sladké vody, souš, vzduch</td></tr>
+        <tr><td>struna hřbetní</td><td>chrupavčitá osa a opora těla – v zárodečném stadiu nebo celý život; u dokonalejších ji nahradí <b>páteř</b></td></tr>
+      </table>
+      <div class="mnem"><b>4 znaky:</b> 1. struna hřbetní · 2. trubicovitá nervová soustava · 3. srdce na břišní straně · 4. uzavřená cévní soustava</div>
+    </div>
+
+    <div class="box">
+      <h2>🫧 Pláštěnci a bezlebeční</h2>
+      <table>
+        <tr><td>pláštěnci</td><td>mořští, volně plavou nebo přisedlí; vrstva rosolu = <b>plášť</b></td></tr>
+        <tr><td>sumka obecná</td><td>dospělci žijí přisedle</td></tr>
+        <tr><td>salpa zoubkovaná</td><td>kolonie dospělců volně plavou</td></tr>
+        <tr><td>bezlebeční (kopinatci)</td><td>mořští, struna hřbetní <b>celý život</b></td></tr>
+        <tr><td>kopinatec plžovitý</td><td>6 cm, noční, vodní, zúžené tělo, ocasní část – ploutevní lem</td></tr>
+      </table>
+    </div>
+
+    <div class="box grn">
+      <h2>🦴 Obratlovci</h2>
+      <table class="grn">
+        <tr><td>páteř</td><td>struna hřbetní nahrazena páteří z obratlů</td></tr>
+        <tr><td>vodní</td><td>ploutve, žábry</td></tr>
+        <tr><td>suchozemští</td><td>párové končetiny, plíce</td></tr>
+        <tr><td>proměnlivá t. t.</td><td>ryby, obojživelníci, plazi</td></tr>
+        <tr><td>stálá t. t.</td><td>ptáci, savci</td></tr>
+      </table>
+      <div class="mnem"><b>7 skupin:</b> kruhoústí · paryby · ryby · obojživelníci · plazi · ptáci · savci</div>
+    </div>
+
+    <div class="box red">
+      <h2>🧛 Kruhoústí</h2>
+      <table class="red">
+        <tr><td>tělo</td><td>hadovitě protáhlé, ploutevní lem vzadu, chrupavčitá kostra, žábry</td></tr>
+        <tr><td>ústa</td><td>kruhovitá ústní přísavka s ostrými zuby</td></tr>
+        <tr><td>vývin</td><td>nepřímý – larva</td></tr>
+        <tr><td>mihule potoční</td><td>dospělec nepřijímá potravu, larva žije 3–4 roky</td></tr>
+      </table>
+      <span class="tag">mihule potoční</span><span class="tag">mihule říční</span><span class="tag">mihule mořská</span>
+    </div>
+
+    <div class="box">
+      <h2>🦈 Paryby</h2>
+      <table>
+        <tr><td>kostra</td><td>chrupavčitá, tělo vřetenovité (rychlý pohyb), mořští</td></tr>
+        <tr><td>ploutve</td><td>ocasní nesouměrná (horní část větší) · břišní a prsní párové · hřbetní a řitní nepárové</td></tr>
+        <tr><td>tělo</td><td>šupiny s ostrými hroty · rypec · ústa vespod, několik řad zubů (stále nové)</td></tr>
+        <tr><td>uvnitř</td><td>žábry · velká tuková játra nadnášejí</td></tr>
+        <tr><td>smysly</td><td>výborný čich, dobrý zrak, postranní čára</td></tr>
+        <tr><td>rozmnožování</td><td>vnitřní oplození, vejcoživorodí</td></tr>
+      </table>
+      <div style="margin-top:8px"><b style="color:var(--gold)">Žraloci:</b> <span class="tag">máčka skvrnitá</span><span class="tag">ž. modravý</span><span class="tag">ž. kladivoun</span><span class="tag">ž. bílý</span><span class="tag">ž. obrovský</span><span class="tag">ž. veliký</span></div>
+      <div style="margin-top:6px"><b style="color:var(--gold)">Rejnoci</b> (zploštělé tělo, lem = srostlé ploutve): <span class="tag">trnucha obecná</span><span class="tag">manta atlantská</span><span class="tag">parejnok elektrický</span></div>
+    </div>
+
+    <div class="box ora">
+      <h2>🐟 Paprskoploutvé ryby – stavba</h2>
+      <table class="ora">
+        <tr><td>výskyt</td><td>sladká i slaná voda; velikost rozmanitá; tvar hydrodynamický</td></tr>
+        <tr><td>tělo</td><td>hlava + trup (srostlé) + ploutve vyztužené paprsky (kostěné, vazivové)</td></tr>
+        <tr><td>párové</td><td>hrudní, břišní – stabilita, změny směru</td></tr>
+        <tr><td>nepárové</td><td>hřbetní, řitní – stabilizace · ocasní – pohyb, kormidlo</td></tr>
+        <tr><td>povrch</td><td>kůže se slizovými žlázami (sliz chrání, snižuje tření), šupiny se překrývají</td></tr>
+      </table>
+    </div>
+
+    <div class="box ora">
+      <h2>🫁 Ryby – soustavy a smysly</h2>
+      <table class="ora">
+        <tr><td>dýchací</td><td>žábry, žaberní dutinu kryjí kostěné skřele</td></tr>
+        <tr><td>vylučovací</td><td>ledviny</td></tr>
+        <tr><td>trávicí</td><td>ústní dutina – jazyk, zuby (dravci ostré), požerákové zuby v hltanu</td></tr>
+        <tr><td>plynový měchýř</td><td>nadnáší, udržuje polohu, sluchová funkce</td></tr>
+        <tr><td>potrava</td><td>mladé plankton, dospělé masožravé, všežravé</td></tr>
+        <tr><td>smysly</td><td>čich (čichové jamky), zrak, hmat (vousky), sluch (vnitřní ucho, plynový měchýř), postranní čára (proudění a tlak vody; kanálek se smyslovými buňkami, otvory v šupinách)</td></tr>
+      </table>
+    </div>
+
+    <div class="box full ora">
+      <h2>🥚 Rozmnožování, migrace a význam</h2>
+      <table class="ora">
+        <tr><td>pohlaví</td><td>gonochoristé (oddělené pohlaví), pohlavní dimorfismus</td></tr>
+        <tr><td>oplození</td><td>vnější – vajíčka (jikry), velké množství spermií (mlíčí)</td></tr>
+        <tr><td>tření</td><td>vypuzování pohlavních buněk · <b>trdliště</b> = místo tření · <b>plůdek</b> = malá rybka · periodické 1× ročně</td></tr>
+        <tr><td>migrace</td><td>tahy ryb v hejnech · potravní – mořské (tuňáci) · rozmnožovací = „svatební cesty“ před třením</td></tr>
+        <tr><td>z moře do řek</td><td>častější – losos</td></tr>
+        <tr><td>z řek do moře</td><td>vzácnější – úhoř</td></tr>
+        <tr><td>význam</td><td>velký hospodářský význam – maso, tuk, rybaření, potrava jiných živočichů</td></tr>
+      </table>
+    </div>
+
+    <div class="box full">
+      <details>
+        <summary>📸 Odkud jsou fotky (volné licence)</summary>
+        <ul id="kredity"></ul>
+      </details>
+    </div>
+  </div>
+  <footer>Video vyrobil 🔱 NEPTUN PRO (s pomocí AI Claude). Kresby, hudba i hlas jsou vytvořené počítačem, skutečné fotky jsou z Wikimedia Commons a Openverse.</footer>
+</div>
+
+<script>
+const CHAPTERS = [[0, "Úvod – co se naučíme"], [55, "1. Kdo jsou strunatci (tajemná struna)"], [122, "2. Pláštěnci (rosolové pytlíky)"], [184, "3. Bezlebeční (kopinatci)"], [236, "4. Obratlovci (nastupuje páteř)"], [301, "5. Kruhoústí (upíři z potoka)"], [355, "6. Paryby (kostra z chrupavky)"], [426, "7. Žraloci (šest žraloků ze sešitu)"], [501, "8. Rejnoci (placatí plachtaři)"], [558, "9. Paprskoploutvé ryby (mistři vody)"], [626, "10. Uvnitř ryby (soustavy)"], [687, "11. Smysly ryb (šestý smysl)"], [727, "12. Rozmnožování (tisíce jiker)"], [783, "13. Migrace (svatební cesty)"], [831, "14. Význam ryb (proč jsou důležité)"], [888, "15. Kvíz (10 otázek na test)"]];
+const KREDITY = ["Great White Shark (Carcharodon carcharias) (32872319266).jpg - Bernard DUPONT from FRANCE (CC BY-SA 2.0, Wikimedia Commons)", "European Robin. : Erithacus rubecula - pete. #hwcp (CC BY 2.0, Openverse / flickr (https://www.flickr.com/photos/13497267@N04/49126689117))", "Banco de gran barracudas (Sphyraena barracuda), parque nacional Ras Muhammad, Egipto, 2022-03-27, DD 115.jpg - Diego Delso (CC BY-SA 4.0, Wikimedia Commons)", "Porites porites porites (clubbed finger coral) (San Salvador Island, Bahamas) 5 (16066417536).jpg - James St. John (CC BY 2.0, Wikimedia Commons)", "Lacerta agilis male 2011 G2.jpg - George Chernilevsky (Public domain, Wikimedia Commons)", "Salmon caviar on a spoon.jpg - TypeZero (CC BY-SA 4.0, Wikimedia Commons)", "Sphyrna mokarran head.jpg - Dave M from Atlanta (CC BY 2.0, Wikimedia Commons)", "Branchiostoma lanceolatum (YPM IZ 093892).jpeg - Daniel J. Drew (CC0, Wikimedia Commons)", "Branchiostoma virginiae.jpg - Nathan T. Jones (CC BY 4.0, Wikimedia Commons)", "Common carp x-ray.jpg - Florian Elias Rieser (CC BY-SA 4.0, Wikimedia Commons)", "Alcedo atthis - Riserve naturali e aree contigue della fascia fluviale del Po.jpg - Luca Casale (CC BY-SA 4.0, Wikimedia Commons)", "Rød ræv (Vulpes vulpes) - Malene Thyssen (CC BY 2.5, Openverse / wikimedia (https://commons.wikimedia.org/w/index.php?curid=442706))", "Jumping Salmon, Brooks Falls, Katmai National Park.jpg - Christoph Strässler (CC BY-SA 2.0, Wikimedia Commons)", "Scyliorhinus canicula - Hans Hillewaert (CC BY-SA 4.0, Openverse / wikimedia (https://commons.wikimedia.org/w/index.php?curid=1526647))", "Giant Manta AdF.jpg - Arturo de Frias Marques (CC BY-SA 4.0, Wikimedia Commons)", "Petromyzon marinus.001 - Aquarium Finisterrae - Fernando Losada Rodríguez (CC BY-SA 4.0, Openverse / wikimedia (https://commons.wikimedia.org/w/index.php?curid=1999625))", "Lampetra planeri 76209247.jpg - Julien Renoult (CC BY 4.0, Wikimedia Commons)", "Jõesilmud2.jpg - Tiit Hunt (CC BY-SA 3.0, Wikimedia Commons)", "Petromyzon marinus 111077283.jpg - Ian Manning (CC BY 4.0, Wikimedia Commons)", "Tiburón azul (Prionace glauca), canal Fayal-Pico, islas Azores, Portugal, 2020-07-27, DD 14.jpg - Diego Delso (CC BY-SA 4.0, Wikimedia Commons)", "Envy (219520561).jpeg - Tilonaut (CC BY 3.0, Wikimedia Commons)", "Leviathan - Part 1 - laszlo-photo (CC BY 2.0, Openverse / flickr (https://www.flickr.com/photos/40467171@N00/2073739636))", "Perche commune perca fluviatilis Alfort.jpg - Jebulon (CC0, Wikimedia Commons)", "Torpille marbrée (Torpedo marmorata) (Ifremer 00561-67318).jpg - Marie-Noelle De Casamajor (CC BY 4.0, Wikimedia Commons)", "Rainbow Trout Fry (51309699084).jpg - USFWS Mountain Prairie (Public domain, Wikimedia Commons)", "Salmo trutta fario.jpg - Robermix (CC0, Wikimedia Commons)", "Fishing Boat Net Ashtamudi Lake Kerala Mar22 A7C 01495.jpg - Diego Delso (CC BY-SA 4.0, Wikimedia Commons)", "Salpa maxima 78696567.jpg - Chris Taklis (CC BY 4.0, Wikimedia Commons)", "Silurus glanis from the Dnieper River.jpg - Nikkolo at Ukrainian Wikipedia (CC BY-SA 1.0, Wikimedia Commons)", "Musselodling med Ciona2 - Havspappan (CC BY 2.0, Openverse / flickr (https://www.flickr.com/photos/20748566@N00/3887004968))", "Common Carp (Cyprinus carpio) Mirror Variety.jpg - USFWS Mountain Prairie (Public domain, Wikimedia Commons)", "Sockeye salmon on spawning grounds redd sockeye redd.jpg - U.S. Fish and Wildlife Service (Public domain, Wikimedia Commons)", "Fish market in Nouakchott - Mauritania.jpg - Uzabiaga (CC BY-SA 4.0, Wikimedia Commons)", "Dasyatis pastinaca 24933880.jpg - Chris Taklis (CC BY 4.0, Wikimedia Commons)", "Banc de thons albacores (Thunnus albacares) (Ifremer 00568-68027 - 25201).jpg - Marc Taquet (CC BY 4.0, Wikimedia Commons)", "Anguille d\u0027Europe (Anguilla anguilla) (Ifremer 00673-78548).jpg - Damien Delaunay (CC BY 4.0, Wikimedia Commons)", "Coral Reef - NOAA\u0027s National Ocean Service (Public domain, Openverse / flickr (https://www.flickr.com/photos/40322276@N04/5514332777))", "Cetorhinus maximus 2.jpg - rossbeane (CC BY-SA 2.0, Wikimedia Commons)", "European Common Frog Rana temporaria - Richard Bartz, Munich aka Makro Freak Image:MFB.jpg (CC BY-SA 2.5, Openverse / wikimedia (https://commons.wikimedia.org/w/index.php?curid=4336610))", "Carassius gibelio male head 2009 G1.jpg - George Chernilevsky (Public domain, Wikimedia Commons)", "White shark teeth closeup Florida.jpg - NOAA Fisheries/Michelle Passeroti (Public domain, Wikimedia Commons)"];
+const v = document.getElementById('v');
+const zvukZap = () => { v.muted = false; v.defaultMuted = false; v.removeAttribute('muted'); if (v.volume < 0.05) v.volume = 1; };
+zvukZap();
+v.addEventListener('loadedmetadata', zvukZap);
+v.addEventListener('play', zvukZap);
+const fmt = s => Math.floor(s / 60) + ':' + String(Math.floor(s % 60)).padStart(2, '0');
+const box = document.getElementById('chapters');
+CHAPTERS.forEach(([t, name]) => {
+  const b = document.createElement('button'); b.className = 'chap'; b.dataset.t = t;
+  b.innerHTML = '<b>' + fmt(t) + '</b><span>' + name + '</span>';
+  b.onclick = () => {
+    const go = () => { zvukZap(); v.currentTime = t; v.play().catch(() => {}); };
+    if (v.readyState >= 1) go(); else { v.addEventListener('loadedmetadata', go, { once: true }); v.load(); }
+    v.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  };
+  box.appendChild(b);
+});
+v.addEventListener('timeupdate', () => {
+  let cur = null; document.querySelectorAll('.chap').forEach(b => { b.classList.remove('now'); if (+b.dataset.t <= v.currentTime) cur = b; });
+  if (cur) cur.classList.add('now');
+});
+const ul = document.getElementById('kredity');
+KREDITY.forEach(k => { const li = document.createElement('li'); li.textContent = k; ul.appendChild(li); });
+</script>
+</body>
+</html>
